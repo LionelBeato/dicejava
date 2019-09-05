@@ -10,35 +10,54 @@ public class GameDriver {
 
         Session newGame = new Session();
 
-        boolean fullGameWon = false;
+        //boolean fullGameWon =
 
-        Player playerOne = new Player();
-        Player playerTwo = new Player();
+        //boolean to check if game is on first round
+        boolean onFirst = true;
 
+        //instantiating player, I can add as many as I want!
+        Player playerOne = new Player("Player 1");
+        Player playerTwo = new Player("Player 2");
+
+        //Arraylist for looping through player turns
         List<Player> Players = new ArrayList<>();
         Players.add(playerOne);
         Players.add(playerTwo);
 
-        while (!fullGameWon){
+        //while loop that runs while the game isn't won
+        while (newGame.gameWon == false) {
 
-            for (Player playerElement: Players){
 
-                //does the initial roll
-                newGame.firstRollLogic(playerElement);
+            //while loop that checks if game is on first round
+            while(onFirst) {
 
-                if (playerElement.wonGame == true){
-                    fullGameWon = true;
+                for (Player p : Players) {
+                    newGame.firstRollLogic(p);
+                    onFirst = false;
+                    if (newGame.gameWon == true){
+                        System.out.println(p+" won!");
+                        break;
+                    }
                 }
-                else if (playerElement.lostGame == true){
-                    fullGameWon = true;
-                }
-
             }
 
+            if (newGame.gameWon == false){
+                    for (Player p : Players) {
+                        newGame.continueRoll(p);
+                        if (newGame.gameWon == true){
+                            System.out.println(p+" won!");
+                            break;
+                        }
+                    }
+                }
 
         }
 
 
 
+
     }
 }
+
+
+

@@ -28,6 +28,6 @@ public class Die {
 
     @Override
     public String toString() {
-        return "You rolled a " + getPits();
+        return " rolled a " + getPits();
     }
 }

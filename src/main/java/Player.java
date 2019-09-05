@@ -1,42 +1,49 @@
 public class Player {
     public int POINT;
-    public boolean wonGame;
-    public boolean lostGame;
-    private int ROLL;
+    public boolean wonGame = false;
+    public boolean lostGame = false;
+    public  int ROLL;
+    private String name;
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getName(){
+        return name;
+    }
 
 
 
     //should the player decide to roll or should it be in the driver?
     public void rollDice(Die redDie, Die blackDie){
         int  l = redDie.getPits();
-        System.out.println(redDie);
+       // System.out.println(redDie);
         int n = blackDie.getPits();
-        System.out.println(blackDie);
+       // System.out.println(blackDie);
          ROLL = l + n;
-         System.out.println("The player rolled a "+ROLL);
+         System.out.println(this.getName()+" rolled a "+ROLL);
     }
 
     //first roll logic
 
     public void FirstRoll(Die redDie, Die blackDie){
         int  l = redDie.getPits();
-        System.out.println(redDie);
+      //  System.out.println(redDie);
         int n = blackDie.getPits();
-        System.out.println(blackDie);
+      //  System.out.println(blackDie);
         POINT = l + n;
-        System.out.println("The player rolled a "+POINT+" and has a POINT of "+POINT);
+        System.out.println(this.getName()+" rolled a "+POINT+" and has a POINT of "+POINT);
     }
 
-    public Player(){
-
+    public Player(String name){
+        setName(name);
         POINT = 0;
-        wonGame = false;
-        lostGame = false;
 
     }
 
     @Override
     public String toString() {
-        return "Player rolled a "+ROLL+" and has a point of "+POINT;
+        return getName();
     }
 }
