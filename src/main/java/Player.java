@@ -1,5 +1,5 @@
 public class Player {
-    public int POINT;
+    public int point;
     public boolean wonGame = false;
     public boolean lostGame = false;
     public  int ROLL;
@@ -22,7 +22,7 @@ public class Player {
         int n = blackDie.getPits();
        // System.out.println(blackDie);
          ROLL = l + n;
-         System.out.println(this.getName()+" rolled a "+ROLL);
+         System.out.println(this.getName()+" rolled a "+l+" "+n+" = "+ROLL);
     }
 
     //first roll logic
@@ -32,13 +32,13 @@ public class Player {
       //  System.out.println(redDie);
         int n = blackDie.getPits();
       //  System.out.println(blackDie);
-        POINT = l + n;
-        System.out.println(this.getName()+" rolled a "+POINT+" and has a POINT of "+POINT);
+        point = l + n;
+        System.out.println(this.getName()+" rolled a "+point+" and has a POINT of "+point);
     }
 
     public Player(String name){
         setName(name);
-        POINT = 0;
+        point = 0;
 
     }
 

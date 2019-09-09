@@ -12,12 +12,12 @@ public class Session {
     public void firstRollLogic(Player player) {
         player.FirstRoll(redDie, blackDie);
         //checks for win state on first roll
-        if (player.POINT == 7 || player.POINT == 11) {
+        if (player.point == 7 || player.point == 11) {
             player.wonGame = true;
             this.gameWon = true;
         }
         //checks for loss state on first roll
-        else if (player.POINT == 2 || player.POINT == 3 || player.POINT == 12 ){
+        else if (player.point == 2 || player.point == 3 || player.point == 12 ){
             player.lostGame = true;
             this.gameWon = true;
         }
@@ -26,7 +26,7 @@ public class Session {
     //logic to continue checking player point against rolled die
     public void continueRoll(Player player){
         player.rollDice(redDie, blackDie);
-        if (player.ROLL == player.POINT){
+        if (player.ROLL == player.point){
             player.wonGame = true;
             this.gameWon = true;
         }
